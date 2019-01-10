@@ -3,5 +3,29 @@
     "source":"Barcelona",
     "destination":"Gerona Airport",
     "type":"Airport Bus"
+  },
+  {
+    "source":"Madrid",
+    "destination":"Barcelona",
+    "type":"Train",
+    "seat":"45B",
+    "vehicleName":"78A"
+  },
+  {
+    "source":"Gerona Airport",
+    "destination":"Stockholm",
+    "type":"Flight",
+    "seat":"3A",
+    "vehicleName":"SK455",
+    "boardingGate":"45B",
+    "baggageDropCounter":"344"
+  },
+  {
+    "source":"Stockholm",
+    "destination":"New York JFK",
+    "type":"Flight",
+    "seat":"7B",
+    "vehicleName":"SK22",
+    "boardingGate":"22"
   }
 ]

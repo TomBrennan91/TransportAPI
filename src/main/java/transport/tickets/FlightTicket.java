@@ -2,17 +2,16 @@ package transport.tickets;
 
 import java.util.HashMap;
 
-public class FlightTicket extends Ticket{
+class FlightTicket extends Ticket{
 
     private String baggageDropCounter;
     private String boardingGate;
-    private String vehicleName;
 
-    public FlightTicket(HashMap<String, String> rawTicket) {
+    FlightTicket(HashMap<String, String> rawTicket) {
         super(rawTicket);
-        this.vehicleName = rawTicket.get("vehiclename");
-        this.baggageDropCounter = rawTicket.get("baggagedropcounter");
-        this.boardingGate = rawTicket.get("boardinggate");
+        this.type = TicketType.FLIGHT;
+        this.baggageDropCounter = rawTicket.get("baggageDropCounter");
+        this.boardingGate = rawTicket.get("boardingGate");
     }
 
     @Override
@@ -26,7 +25,7 @@ public class FlightTicket extends Ticket{
 
     private String getBaggageDropDescription(){
         if (baggageDropCounter == null){
-            return "Baggage will be Automatically transferred from your last leg";
+            return " Baggage will be automatically transferred from your last leg.";
         } else {
             return " Baggage drop at ticket counter " + baggageDropCounter + ".";
         }

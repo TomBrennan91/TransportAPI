@@ -2,14 +2,13 @@ package simplejson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class NaiveJsonParser {
 
     public static ArrayList<HashMap<String,String>> getTicketsFromJson(String input){
 
         if (input == null) return null;
-        ArrayList<HashMap<String, String>> tickets = new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> tickets = new ArrayList<>();
 
         input = input.replaceAll("\\n","")
                      .replace("[","")
@@ -35,7 +34,7 @@ public class NaiveJsonParser {
     }
 
     private static HashMap<String, String> getSingleTicketFromJSON(String input){
-        HashMap<String ,String> ticket = new HashMap<String, String>();
+        HashMap<String ,String> ticket = new HashMap<>();
 
         for (int i = 0; i < 100 ; i++) {
             String[] splitInput = input.split(":", 2);

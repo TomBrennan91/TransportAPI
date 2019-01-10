@@ -2,7 +2,7 @@ package transport.tickets;
 
 public enum TicketType {
     AIRPORT_BUS ("Airport Bus"),
-    Flight("Flight"),
+    FLIGHT("Flight"),
     TRAIN("Train");
 
     public String getPrintableName() {

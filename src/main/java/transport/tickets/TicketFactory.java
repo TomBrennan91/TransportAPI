@@ -27,7 +27,7 @@ public class TicketFactory {
                 return new BusTicket(rawData);
             case TRAIN:
                 return new TrainTicket(rawData);
-            case Flight:
+            case FLIGHT:
                 return new FlightTicket(rawData);
             default:
                 throw new UnknownTicketTypeException(type);
