@@ -1,4 +1,4 @@
 package transport.tickets;
 
-public class BusTicket {
+public class BusTicket extends Ticket{
 }
