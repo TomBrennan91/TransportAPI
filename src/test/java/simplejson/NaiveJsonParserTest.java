@@ -3,13 +3,18 @@ package simplejson;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class NaiveJsonParserTest {
 
     @Test
-    private void TestNaiveJsonPArser(){
-        NaiveJsonParser.getTicketsFromJson("[\n" +
+    public void TestNaiveJsonParserSingleTicket(){
+
+        ArrayList<HashMap<String, String>> tickets =  NaiveJsonParser.getTicketsFromJson("[\n" +
                 "  {\n" +
                 "    \"source\":\"Barcelona\",\n" +
                 "    \"destination\":\"Gerona Airport\",\n" +
@@ -19,7 +24,36 @@ class NaiveJsonParserTest {
                 "  }\n" +
                 "]");
 
-        assertFalse(false);
+        assertEquals("Barcelona", tickets.get(0).get("source"));
+        assertEquals("Gerona Airport", tickets.get(0).get("destination"));
+        assertEquals("Airport Bus", tickets.get(0).get("type"));
+        assertEquals(null, tickets.get(0).get("foo"));
+    }
+
+    @Test
+    public void TestNaiveJsonParserMultiTicket(){
+
+        ArrayList<HashMap<String, String>> tickets =  NaiveJsonParser.getTicketsFromJson("[\n" +
+                "  {\n" +
+                "    \"source\":\"Barcelona\",\n" +
+                "    \"destination\":\"Gerona Airport\",\n" +
+                "    \"type\":\"Airport Bus\"\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"source\":\"Barcelona\",\n" +
+                "    \"destination\":\"Gerona Airport\",\n" +
+                "    \"type\":\"Airport Bus\"\n" +
+                "  }" +
+                "]");
+
+        assertEquals("Barcelona", tickets.get(0).get("source"));
+        assertEquals("Gerona Airport", tickets.get(0).get("destination"));
+        assertEquals("Airport Bus", tickets.get(0).get("type"));
+
+        assertEquals("Barcelona", tickets.get(1).get("source"));
+        assertEquals("Gerona Airport", tickets.get(1).get("destination"));
+        assertEquals("Airport Bus", tickets.get(1).get("type"));
+        assertEquals(null, tickets.get(1).get("foo"));
     }
 
 

@@ -7,42 +7,53 @@ import java.util.HashSet;
 public class NaiveJsonParser {
 
     public static ArrayList<HashMap<String,String>> getTicketsFromJson(String input){
-        System.out.println(input);
+
         if (input == null) return null;
         ArrayList<HashMap<String, String>> tickets = new ArrayList<HashMap<String, String>>();
-        System.out.println(input);
-        input.replace("\\n","");
-        input.replace("[","");
-        input.replace("]","");
+
+        input = input.replaceAll("\\n","")
+                     .replace("[","")
+                     .replace("]","");
+
         String[] rawTickets = input.split("}");
 
         for (String rawTicket: rawTickets){
-            System.out.println(rawTicket);
-            getTicketsFromJson(rawTicket);
-        }
+            rawTicket = rawTicket.replace("{","").trim();
+            if (rawTicket.startsWith(",")){
+                rawTicket = rawTicket.replaceFirst(",","").trim();
+            }
 
+            HashMap<String, String> newTicket = getSingleTicketFromJSON(rawTicket);
+            if (newTicket.size() > 0) {
+                tickets.add(newTicket);
+            }
+
+        }
+        System.out.println(tickets.size() + " tickets");
+        System.out.println();
         return tickets;
     }
 
     private static HashMap<String, String> getSingleTicketFromJSON(String input){
         HashMap<String ,String> ticket = new HashMap<String, String>();
-        System.out.println(input);
+
         for (int i = 0; i < 100 ; i++) {
 
-            String[] splitInput = input.split("\":\"", 1);
-            if (splitInput.length < 2) {
-                return ticket;
-            }
+            String[] splitInput = input.split(":", 2);
             String key = splitInput[0].replace("\"", "");
 
-            splitInput = input.split("\",\"", 1);
-            if (splitInput.length < 2) {
-                return ticket;
-            }
+            if (splitInput.length < 2) return ticket;
+            input = splitInput[1].trim();
 
+            splitInput = input.split(",", 2);
             String value = splitInput[0].replace("\"", "");
+            System.out.println("key=" + key  + " , value=" + value);
+
             ticket.put(key,value);
-            System.out.println(key + ":" + value);
+
+            if (splitInput.length < 2) return  ticket;
+            input = splitInput[1].trim();
+
         }
 
         return ticket;
