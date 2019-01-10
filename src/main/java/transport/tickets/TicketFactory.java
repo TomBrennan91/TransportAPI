@@ -13,8 +13,8 @@ public class TicketFactory {
                 return new FlightTicket();
             default:
                 throw new UnknownTicketTypeException(type);
-            }
         }
     }
+
 
 }
