@@ -1,5 +1,9 @@
-{
-  "source":"Barcelona",
-  "destination":"Gerona Airport",
-  "type":"Airport Bus"
-}
+[
+  {
+    "source":"Barcelona",
+    "destination":"Gerona Airport",
+    "type":"Airport Bus"
+  },
+  {
+  }
+]
