@@ -46,10 +46,12 @@ public class Main {
 
         ArrayList<Ticket> ticketList =  TicketFactory.createAllTickets(tickets);
 
-
+        int ticketNo = 0;
         for (Ticket ticket : ticketList){
-            System.out.println(ticket.getItinerarySectionDescription());
+            System.out.println(++ticketNo + ". " + ticket.getItinerarySectionDescription());
         }
+
+        System.out.println(++ticketNo + ". You have arrived at your destination.");
         //ticketList.forEach(ticket -> ));
 
     }
