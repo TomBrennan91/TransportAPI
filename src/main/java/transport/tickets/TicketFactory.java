@@ -1,23 +1,34 @@
 package transport.tickets;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TicketFactory {
 
 
-    public ArrayList<Ticket> createAllTickets(){
-        return null;
+    public static ArrayList<Ticket> createAllTickets(ArrayList<HashMap<String, String>> inputStack){
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        for (HashMap<String, String> input: inputStack){
+            try {
+                ticketList.add(createTicket(input));
+            } catch (UnknownTicketTypeException e){
+                e.printStackTrace();
+            }
+        }
+        return ticketList;
     }
 
-    private Ticket createTicket(String type) throws UnknownTicketTypeException{
+    private static Ticket createTicket(HashMap<String, String> rawData) throws UnknownTicketTypeException{
 
-        switch (TicketType.valueOf(type.toUpperCase())){
+        String type = rawData.get("type");
+
+        switch (TicketType.valueOf(type.replace(" ","_").toUpperCase())){
             case AIRPORT_BUS:
-                return new BusTicket();
+                return new BusTicket(rawData);
             case TRAIN:
-                return new TrainTicket();
+                return new TrainTicket(rawData);
             case Flight:
-                return new FlightTicket();
+                return new FlightTicket(rawData);
             default:
                 throw new UnknownTicketTypeException(type);
         }

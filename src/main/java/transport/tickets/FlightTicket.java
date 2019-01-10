@@ -1,10 +1,19 @@
 package transport.tickets;
 
+import java.util.HashMap;
+
 public class FlightTicket extends Ticket{
 
     private String baggageDropCounter;
     private String boardingGate;
     private String vehicleName;
+
+    public FlightTicket(HashMap<String, String> rawTicket) {
+        super(rawTicket);
+        this.vehicleName = rawTicket.get("vehiclename");
+        this.baggageDropCounter = rawTicket.get("baggagedropcounter");
+        this.boardingGate = rawTicket.get("boardinggate");
+    }
 
     @Override
     public String getItinerarySectionDescription(){

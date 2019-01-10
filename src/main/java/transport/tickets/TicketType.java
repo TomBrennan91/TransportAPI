@@ -6,7 +6,7 @@ public enum TicketType {
     TRAIN("Train");
 
     public String getPrintableName() {
-        return printableName;
+        return this.printableName;
     }
 
     private String printableName;
