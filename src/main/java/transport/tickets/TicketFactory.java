@@ -1,8 +1,15 @@
 package transport.tickets;
 
+import java.util.ArrayList;
+
 public class TicketFactory {
 
-    public Ticket createTicket(String type) throws UnknownTicketTypeException{
+
+    public ArrayList<Ticket> createAllTickets(){
+        return null;
+    }
+
+    private Ticket createTicket(String type) throws UnknownTicketTypeException{
 
         switch (TicketType.valueOf(type.toUpperCase())){
             case AIRPORT_BUS:

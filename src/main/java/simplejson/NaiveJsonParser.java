@@ -27,8 +27,8 @@ public class NaiveJsonParser {
             if (newTicket.size() > 0) {
                 tickets.add(newTicket);
             }
-
         }
+
         System.out.println(tickets.size() + " tickets");
         System.out.println();
         return tickets;
@@ -38,7 +38,6 @@ public class NaiveJsonParser {
         HashMap<String ,String> ticket = new HashMap<String, String>();
 
         for (int i = 0; i < 100 ; i++) {
-
             String[] splitInput = input.split(":", 2);
             String key = splitInput[0].replace("\"", "");
 
@@ -53,9 +52,7 @@ public class NaiveJsonParser {
 
             if (splitInput.length < 2) return  ticket;
             input = splitInput[1].trim();
-
         }
-
         return ticket;
     }
 
