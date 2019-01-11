@@ -1,6 +1,7 @@
 package transport.scheduler;
 
 import simplejson.NaiveJsonParser;
+import transport.io.TicketPrinter;
 import transport.sorting.TicketSorter;
 import transport.tickets.Ticket;
 import transport.tickets.TicketFactory;
@@ -47,16 +48,7 @@ public class Main {
 
 
         ArrayList<Ticket> ticketList =  TicketFactory.createAllTickets(tickets);
-
         List<Ticket> sortedTickets = TicketSorter.sortTickets(ticketList);
-
-        int ticketNo = 0;
-        for (Ticket ticket : sortedTickets){
-            System.out.println(++ticketNo + ". " + ticket.getItinerarySectionDescription());
-        }
-
-        System.out.println(++ticketNo + ". You have arrived at your destination.");
-        //ticketList.forEach(ticket -> ));
-
+        TicketPrinter.printTickets(sortedTickets);
     }
 }
