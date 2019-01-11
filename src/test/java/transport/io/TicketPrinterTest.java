@@ -1,6 +1,9 @@
 package transport.io;
 
-import org.junit.jupiter.api.*;
+import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInstance;
 import transport.tickets.BusTicket;
 import transport.tickets.Ticket;
 import java.io.ByteArrayOutputStream;
@@ -8,8 +11,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.Assert.assertEquals;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
