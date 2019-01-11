@@ -8,5 +8,4 @@ class TrainTicket extends Ticket{
         super(rawTicket);
         this.type = TicketType.TRAIN;
     }
-
 }

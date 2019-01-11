@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class TicketFactory {
 
-
     public static ArrayList<Ticket> createAllTickets(ArrayList<HashMap<String, String>> inputStack){
         ArrayList<Ticket> ticketList = new ArrayList<>();
         for (HashMap<String, String> input: inputStack){
@@ -19,9 +18,7 @@ public class TicketFactory {
     }
 
     private static Ticket createTicket(HashMap<String, String> rawData) throws UnknownTicketTypeException{
-
         String type = rawData.get("type");
-
         switch (TicketType.valueOf(type.replace(" ","_").toUpperCase())){
             case AIRPORT_BUS:
                 return new BusTicket(rawData);
@@ -33,6 +30,4 @@ public class TicketFactory {
                 throw new UnknownTicketTypeException(type);
         }
     }
-
-
 }

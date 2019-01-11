@@ -4,13 +4,14 @@ import java.util.HashMap;
 
 public abstract class Ticket {
 
+    TicketType type;
     private String source;
     private String destination;
-    TicketType type;
     private String seat;
     private String vehicleName;
 
     Ticket(HashMap<String, String> rawTicket) {
+        if (rawTicket == null) return;
         this.source = rawTicket.get("source");
         this.destination = rawTicket.get("destination");
         this.seat = rawTicket.get("seat");
