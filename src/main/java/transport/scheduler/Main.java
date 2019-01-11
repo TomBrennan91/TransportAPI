@@ -1,11 +1,13 @@
 package transport.scheduler;
 
 import simplejson.NaiveJsonParser;
+import transport.sorting.TicketSorter;
 import transport.tickets.Ticket;
 import transport.tickets.TicketFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
 
@@ -46,8 +48,10 @@ public class Main {
 
         ArrayList<Ticket> ticketList =  TicketFactory.createAllTickets(tickets);
 
+        List<Ticket> sortedTickets = TicketSorter.sortTickets(ticketList);
+
         int ticketNo = 0;
-        for (Ticket ticket : ticketList){
+        for (Ticket ticket : sortedTickets){
             System.out.println(++ticketNo + ". " + ticket.getItinerarySectionDescription());
         }
 

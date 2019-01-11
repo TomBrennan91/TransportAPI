@@ -3,13 +3,12 @@ package transport.tickets;
 import java.util.HashMap;
 
 public abstract class Ticket {
+
     private String source;
     private String destination;
     TicketType type;
     private String seat;
     private String vehicleName;
-
-
 
     Ticket(HashMap<String, String> rawTicket) {
         this.source = rawTicket.get("source");
@@ -40,5 +39,13 @@ public abstract class Ticket {
         } else {
             return " " + vehicleName;
         }
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getDestination() {
+        return destination;
     }
 }

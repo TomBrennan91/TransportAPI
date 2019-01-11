@@ -45,8 +45,8 @@ public class NaiveJsonParser {
 
             splitInput = input.split(",", 2);
             String value = splitInput[0].replace("\"", "");
-            System.out.println("key=" + key  + " , value=" + value);
 
+            //System.out.println("key=" + key  + " , value=" + value);
             ticket.put(key,value);
 
             if (splitInput.length < 2) return  ticket;
