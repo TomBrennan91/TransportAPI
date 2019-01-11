@@ -22,6 +22,9 @@ KEY FEATURES:
   Since the assignment banned the use of all 3rd party libraries except for in the tests, I had to write my own parser.
   Obviously any sane developer would use Jackson or Gson here under usual circumstances.
 
+- Ticket Validation. To catch bugs to do with missing mandatory boarding pass parameters in an extensible way. The Ticket
+  class includes an IsValid() method which can be overriden.
+
 ASSUMPTIONS:
 
 - no loops in journeys: ie a trip cannot go like:  Birmingham -> Lichfield -> Sheffield -> Birmingham -> London

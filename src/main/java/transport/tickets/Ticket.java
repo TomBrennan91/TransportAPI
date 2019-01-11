@@ -1,6 +1,8 @@
 package transport.tickets;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public abstract class Ticket {
 
@@ -24,6 +26,15 @@ public abstract class Ticket {
                 + " from " + source
                 + " to " + destination + "."
                 + getSeatDescription();
+    }
+
+    public boolean isValid(){
+        ArrayList<String> mandatoryParameters = new ArrayList<>();
+        mandatoryParameters.add(type.toString());
+        mandatoryParameters.add(source);
+        mandatoryParameters.add(destination);
+
+        return mandatoryParameters.stream().noneMatch( s -> s == null || s.trim().isEmpty());
     }
 
     private String getSeatDescription(){

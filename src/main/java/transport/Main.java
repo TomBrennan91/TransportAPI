@@ -1,5 +1,6 @@
 package transport;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import simplejson.NaiveJsonParser;
 import transport.io.TicketFileInput;
 import transport.io.TicketPrinter;
@@ -23,8 +24,11 @@ public class Main {
         }
 
         ArrayList<HashMap<String, String>> tickets =  NaiveJsonParser.getTicketsFromJson(json);
-
         ArrayList<Ticket> ticketList =  TicketFactory.createAllTickets(tickets);
+        if (ticketList.stream().anyMatch(ticket -> !ticket.isValid())){
+            System.err.println("Invalid Parameters");
+        }
+
         List<Ticket> sortedTickets = TicketSorter.sortTickets(ticketList);
         TicketPrinter.printTickets(sortedTickets);
     }

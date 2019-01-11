@@ -28,8 +28,7 @@ public class NaiveJsonParser {
             }
         }
 
-        System.out.println(tickets.size() + " tickets");
-        System.out.println();
+        //System.out.println(tickets.size() + " tickets");
         return tickets;
     }
 

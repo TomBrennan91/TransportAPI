@@ -19,9 +19,7 @@ public class NaiveJsonParserTest {
                 "    \"source\":\"Barcelona\",\n" +
                 "    \"destination\":\"Gerona Airport\",\n" +
                 "    \"type\":\"Airport Bus\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "  }\n" +
+                "  }" +
                 "]");
 
         assertEquals("Barcelona", tickets.get(0).get("source"));
