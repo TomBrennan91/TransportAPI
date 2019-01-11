@@ -4,13 +4,14 @@ import org.junit.Test;
 import transport.tickets.BusTicket;
 import transport.tickets.Ticket;
 import transport.tickets.TicketFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
-class TicketSorterTest {
+public class TicketSorterTest {
 
     @Test
     public void sortEmptyList(){
