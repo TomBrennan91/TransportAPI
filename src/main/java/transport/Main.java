@@ -18,8 +18,15 @@ import java.util.Optional;
 public class Main {
 
     public static void main(String[] args) {
+        String filePath;
+        if (args == null || args.length == 0){
+            filePath = "./src/main/resources/exampleTickets.json";
+        } else {
+            filePath = args[0];
+        }
+
         try {
-            createAndPrintItinerary("./src/main/resources/exampleTickets.json");
+            createAndPrintItinerary(filePath);
         } catch (InvalidTicketException | UnknownTicketTypeException| IOException e){
             e.printStackTrace();
         }
