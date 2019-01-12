@@ -2,6 +2,7 @@ package simplejson;
 
 
 import org.junit.Test;
+import transport.simplejson.NaiveJsonParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;

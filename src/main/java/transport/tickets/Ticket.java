@@ -60,4 +60,13 @@ public abstract class Ticket {
     public String getDestination() {
         return destination;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "type=" + type +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                '}';
+    }
 }

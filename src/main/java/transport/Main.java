@@ -1,6 +1,6 @@
 package transport;
 
-import simplejson.NaiveJsonParser;
+import transport.simplejson.NaiveJsonParser;
 import transport.io.TicketFileInput;
 import transport.io.TicketPrinter;
 import transport.sorting.TicketSorter;
@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
 
@@ -30,8 +31,9 @@ public class Main {
         String json = TicketFileInput.getJsonFromPath(filePath);
         ArrayList<HashMap<String, String>> rawTickets =  NaiveJsonParser.getRawTicketsFromJson(json);
         ArrayList<Ticket> ticketList =  TicketFactory.createAllTickets(rawTickets);
-        if (ticketList.stream().anyMatch(ticket -> !ticket.isValid())){
-            throw new InvalidTicketException();
+        Optional<Ticket> invalidTicket = ticketList.stream().filter(ticket -> !ticket.isValid()).findAny();
+        if (invalidTicket.isPresent()){
+            throw new InvalidTicketException(invalidTicket.get());
         }
         List<Ticket> sortedTickets = TicketSorter.sortTickets(ticketList);
         TicketPrinter.printTickets(sortedTickets);

@@ -1,4 +1,4 @@
-package simplejson;
+package transport.simplejson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
