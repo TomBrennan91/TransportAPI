@@ -5,11 +5,13 @@ import transport.tickets.Ticket;
 import java.util.List;
 
 public class TicketPrinter {
-    public static void printTickets(List<Ticket> sortedTickets){
+    public static String printTickets(List<Ticket> sortedTickets){
+        StringBuilder out = new StringBuilder();
         int ticketNo = 0;
         for (Ticket ticket : sortedTickets){
-            System.out.println(++ticketNo + ". " + ticket.getItinerarySectionDescription());
+            out.append(++ticketNo + ". " + ticket.getItinerarySectionDescription() + "\n");
         }
-        System.out.println(++ticketNo + ". You have arrived at your destination.");
+        out.append(++ticketNo + ". You have arrived at your destination.");
+        return out.toString();
     }
 }

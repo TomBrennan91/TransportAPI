@@ -1,5 +1,13 @@
 [
   {
+    "source":"Stockholm",
+    "destination":"New York JFK",
+    "type":"Flight",
+    "seat":"7B",
+    "vehicleName":"SK22",
+    "boardingGate":"22"
+  },
+  {
     "source":"Barcelona",
     "destination":"Gerona Airport",
     "type":"Airport Bus"
@@ -19,13 +27,5 @@
     "vehicleName":"SK455",
     "boardingGate":"45B",
     "baggageDropCounter":"344"
-  },
-  {
-    "source":"Stockholm",
-    "destination":"New York JFK",
-    "type":"Flight",
-    "seat":"7B",
-    "vehicleName":"SK22",
-    "boardingGate":"22"
   }
 ]

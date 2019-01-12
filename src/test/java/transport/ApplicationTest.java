@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MainTest {
+public class ApplicationTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
@@ -23,7 +23,7 @@ public class MainTest {
 
     @Test
     public void HappyPathIntegrationTest(){
-        Main.main(null);
+        Application.main(null);
         assertEquals("1. Take the Train 78A from Madrid to Barcelona. Sit in seat 45B.\r\n" +
                               "2. Take the Airport Bus from Barcelona to Gerona Airport. No seat assignment.\r\n" +
                               "3. Take the Flight SK455 from Gerona Airport to Stockholm. Sit in seat 3A. Gate 45B. Baggage drop at ticket counter 344.\r\n" +
