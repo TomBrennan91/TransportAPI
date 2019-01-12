@@ -5,14 +5,16 @@ import java.util.HashMap;
 
 public class TicketFactory {
 
-    public static ArrayList<Ticket> createAllTickets(ArrayList<HashMap<String, String>> inputStack){
+    public static ArrayList<Ticket> createAllTickets(ArrayList<HashMap<String, String>> inputStack)throws  UnknownTicketTypeException{
         if (inputStack == null || inputStack.size() == 0 ) return null;
         ArrayList<Ticket> ticketList = new ArrayList<>();
-        inputStack.forEach(r -> ticketList.add(createTicket(r)));
+        for (HashMap<String,String> rawTicket : inputStack){
+            ticketList.add(createTicket(rawTicket));
+        }
         return ticketList;
     }
 
-    private static Ticket createTicket(HashMap<String, String> rawData){
+    private static Ticket createTicket(HashMap<String, String> rawData) throws UnknownTicketTypeException{
         String type = rawData.get("type");
         try {
             switch (TicketType.valueOf(type.replace(" ", "_").toUpperCase())) {

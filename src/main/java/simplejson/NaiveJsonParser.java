@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class NaiveJsonParser {
 
-    public static ArrayList<HashMap<String,String>> getTicketsFromJson(String input){
+    public static ArrayList<HashMap<String,String>> getRawTicketsFromJson(String input){
 
         if (input == null) return null;
         ArrayList<HashMap<String, String>> tickets = new ArrayList<>();
@@ -15,7 +15,6 @@ public class NaiveJsonParser {
                      .replace("]","");
 
         String[] rawTickets = input.split("}");
-
         for (String rawTicket: rawTickets){
             rawTicket = rawTicket.replace("{","").trim();
             if (rawTicket.startsWith(",")){

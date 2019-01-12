@@ -1,20 +1,18 @@
 package transport.tickets;
 
 import org.junit.Test;
-
 import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TicketTest {
 
-    @Test()
+    @Test
     public void ticketValidNullTicketTest(){
         Ticket ticket = new BusTicket(null);
         assertFalse(ticket.isValid());
     }
 
-    @Test()
+    @Test
     public void ticketValidEmptyTicketTest(){
         HashMap<String, String> rawTicket = new HashMap<>();
         rawTicket.put("source","  ");
@@ -23,7 +21,7 @@ public class TicketTest {
         assertFalse(ticket.isValid());
     }
 
-    @Test()
+    @Test
     public void ticketValidateNullParameterTest(){
         HashMap<String, String> rawTicket = new HashMap<>();
         rawTicket.put("source","a");
@@ -33,7 +31,7 @@ public class TicketTest {
     }
 
 
-    @Test()
+    @Test
     public void ticketValidationAcceptanceTest(){
         HashMap<String, String> rawTicket = new HashMap<>();
         rawTicket.put("source","a");

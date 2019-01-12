@@ -1,23 +1,23 @@
 package transport.tickets;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
-class TicketFactoryTest {
+public class TicketFactoryTest {
 
     @Test
     public void nullTicketList() throws UnknownTicketTypeException{
-        assertEquals(null, TicketFactory.createAllTickets(null));
+        assertNull(TicketFactory.createAllTickets(null));
     }
 
     @Test
     public void emptyTicketList() throws UnknownTicketTypeException{
-        assertEquals(null, TicketFactory.createAllTickets(new ArrayList<>()));
+        assertNull(TicketFactory.createAllTickets(new ArrayList<>()));
     }
 
     @Test
@@ -26,11 +26,11 @@ class TicketFactoryTest {
         errorMap.put("type","foo");
         ArrayList<HashMap<String,String>> errorList = new ArrayList<>();
         errorList.add(errorMap);
-        assertThrows(UnknownTicketTypeException.class, () -> {TicketFactory.createAllTickets(errorList); });
+        assertThrows(UnknownTicketTypeException.class, () -> TicketFactory.createAllTickets(errorList));
     }
 
     @Test
-    public void flightTicket(){
+    public void flightTicket() throws UnknownTicketTypeException{
         HashMap<String, String> map = new HashMap<>();
         map.put("type","Flight");
         ArrayList<HashMap<String,String>> list = new ArrayList<>();
@@ -40,7 +40,7 @@ class TicketFactoryTest {
     }
 
     @Test
-    public void TrainTicket(){
+    public void TrainTicket() throws UnknownTicketTypeException{
         HashMap<String, String> map = new HashMap<>();
         map.put("type","Train");
         ArrayList<HashMap<String,String>> list = new ArrayList<>();
@@ -50,7 +50,7 @@ class TicketFactoryTest {
     }
 
     @Test
-    public void BusTicket(){
+    public void BusTicket() throws UnknownTicketTypeException{
         HashMap<String, String> map = new HashMap<>();
         map.put("type","Airport Bus");
         ArrayList<HashMap<String,String>> list = new ArrayList<>();

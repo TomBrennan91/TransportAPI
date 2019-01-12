@@ -1,9 +1,11 @@
 This Transport API takes an unordered set of tickets as JSON as input, and it outputs a nicely formatted Itinerary to STDout.
 
-The API can be called via the Main(String args[]) method, just pass in a filepath to your .json input file.
-If no arguments are passed in, an example input in ./src/main/resources/exampleTickets.json will be used as input.
+HOW TO RUN IT:
+ 1. I will be hosting this app for a limited time as a service on AWS with a nice JavaScript Front end . please go to :
 
-I will also be hosting this app for a limited time as a service on AWS with a nice JavaScript Front end . please go to :
+ 2.The API can be called via the Main(String args[]) method, just pass in a filepath to your .json input file.
+   If no arguments are passed in, an example input in ./src/main/resources/exampleTickets.json will be used as input.
+
 
 KEY FEATURES:
 - Easily Extensible: If a new means of transportation comes along, simply make a new class that extends the Ticket Class.
@@ -25,6 +27,8 @@ KEY FEATURES:
 - Ticket Validation. To catch bugs to do with missing mandatory boarding pass parameters in an extensible way. The Ticket
   class includes an IsValid() method which can be overriden.
 
+- Error Handling: For tickets of unknown type, bad file paths, Missing mandatory ticket parameters.
+
 ASSUMPTIONS:
 
 - no loops in journeys: ie a trip cannot go like:  Birmingham -> Lichfield -> Sheffield -> Birmingham -> London
@@ -32,8 +36,6 @@ ASSUMPTIONS:
 
 - input JSON only goes one layer deep. Obviously this is unrealistic in a real world scenario but in the real world
   I would be allowed to use Jackson, and I don't think writing a JSON parser was supposed to be part of the assignment!
-
-- Error Handling: the system should throw an exception if one of the tickets cannot be processed, as this would break the chain of tickets.
 
 - Inputs are case sensitive
 

@@ -4,12 +4,14 @@ import org.junit.Test;
 import transport.tickets.BusTicket;
 import transport.tickets.Ticket;
 import transport.tickets.TicketFactory;
+import transport.tickets.UnknownTicketTypeException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class TicketSorterTest {
 
@@ -20,7 +22,7 @@ public class TicketSorterTest {
 
     @Test
     public void sortNull(){
-        assertEquals(TicketSorter.sortTickets(null), null) ;
+        assertNull(TicketSorter.sortTickets(null));
     }
 
     @Test
@@ -32,7 +34,7 @@ public class TicketSorterTest {
     }
 
     @Test
-    public void sortMultipleTickets(){
+    public void sortMultipleTickets()throws UnknownTicketTypeException {
 
         ArrayList<HashMap<String, String>> unsortedMap = new ArrayList<>();
 
