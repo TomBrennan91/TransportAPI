@@ -4,7 +4,7 @@ HOW TO RUN IT:
  1. I will be hosting this app for a limited time as a service on AWS with a JavaScript Front end .
     PLEASE VISIT: transportapi.s3-website.us-east-2.amazonaws.com
 
- 2. The API can be called via the Main(String args[]) method, just pass in a filepath to your .json input file.
+ 2. The API can be called via the Main(String args[]) method in the Application class. just pass in a filepath to your .json input file.
     If no arguments are passed in, an example input in ./src/main/resources/exampleTickets.json will be used as input.
 
 

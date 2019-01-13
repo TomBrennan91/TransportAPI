@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-public class Main {
+public class Application {
 
     public static void main(String[] args) {
         String filePath;
