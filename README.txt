@@ -1,3 +1,6 @@
+I made this API for a job application:
+
+
 This Transport API takes an unordered set of tickets as JSON as input, and it outputs a nicely formatted Itinerary to STDout.
 
 HOW TO RUN IT:
